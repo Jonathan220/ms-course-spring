@@ -9,6 +9,7 @@ import org.springframework.cloud.loadbalancer.core.ServiceInstanceListSupplier;
 
 import reactor.core.publisher.Flux;
 
+// Para informar as instencias disponíveis de forma hardcoded
 public class DemonInstanceSupplier implements ServiceInstanceListSupplier {
 	private final String serviceId;
 	

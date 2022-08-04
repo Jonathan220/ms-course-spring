@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.jonathan.hrpayroll.config.DemoServerInstanceConfiguration;
 import com.jonathan.hrpayroll.entities.Worker;
-
+// Para se comunicar com outros projetos
 @Component
 @FeignClient(name = "hr-worker", path = "/workers")
-@LoadBalancerClient(name = "hr-worker", configuration = DemoServerInstanceConfiguration.class)
+@LoadBalancerClient(name = "hr-worker", configuration = DemoServerInstanceConfiguration.class)// Configuração do LoadBalance
 public interface WorkerFeignClient {
 	
 	@GetMapping(value = "/{id}")

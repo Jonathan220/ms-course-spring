@@ -11,8 +11,8 @@ import com.jonathan.hrpayroll.feignclients.WorkerFeignClient;
 @Service // Tratar classe como componente do spring
 public class PaymenteService {
 	
-	@Value("${hr-worker.host}")
-	private String workerHost; // Armazena o valor da propriedade na variável
+//	@Value("${hr-worker.host}")
+//	private String workerHost; // Armazena o valor da propriedade na variável
 	
 //	@Autowired
 //	private RestTemplate restTemplate;
@@ -26,7 +26,7 @@ public class PaymenteService {
 		
 //		Worker worker = restTemplate.getForObject(workerHost+"/workers/{id}", Worker.class, uriVariables);
 		
-		Worker worker = workerFeignClient.findById(workerId).getBody();
-		return new Payment(worker.getName(), worker.getDailyIncome(), days);
+		Worker worker = workerFeignClient.findById(workerId).getBody(); // Realiza a busca do objeto worker no projeto hr-worker
+		return new Payment(worker.getName(), worker.getDailyIncome(), days); // o objeto worker tem suas informações adicionadas ao objeto payment
 	}
 }
