@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jonathan.hrpayroll.entities.Payment;
 import com.jonathan.hrpayroll.services.PaymenteService;
 
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-
 @RestController
 @RequestMapping(value = "/payments")
 public class PaymentResource {

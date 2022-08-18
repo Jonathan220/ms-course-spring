@@ -1,14 +1,11 @@
 package com.jonathan.hrpayroll.config;
 
 import java.time.Duration;
-import java.util.function.Supplier;
 
 import org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JCircuitBreakerFactory;
 import org.springframework.cloud.client.circuitbreaker.Customizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.jonathan.hrpayroll.entities.Worker;
 
 import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
 
@@ -24,8 +21,7 @@ public class FeignConfiguration {
 				.permittedNumberOfCallsInHalfOpenState(5)
 				.writableStackTraceEnabled(false)
 				.build();
-		
-		return resilience4JCircuitBreakerFactory -> resilience4JCircuitBreakerFactory.configure(builder -> builder.circuitBreakerConfig(cbConfig), "WorkerFeignClient#findById(Long)");
+		return resilience4JCircuitBreakerFactory -> resilience4JCircuitBreakerFactory.configure(builder -> builder.circuitBreakerConfig(cbConfig),"WorkerFeignClient#findById(Long)");
 	}
 	
 }
