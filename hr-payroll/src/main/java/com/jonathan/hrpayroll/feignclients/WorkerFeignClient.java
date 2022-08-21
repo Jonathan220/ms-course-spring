@@ -16,4 +16,8 @@ public interface WorkerFeignClient {
 	@GetMapping(value = "/{id}")
 	ResponseEntity<Worker> findById(@PathVariable Long id);
 
+	default ResponseEntity<Worker> fallback(Long id){
+		Worker worker = new Worker(id, "Brann", 400.0);
+		return ResponseEntity.ok(worker);
+	}
 }
